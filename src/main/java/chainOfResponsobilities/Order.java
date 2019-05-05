@@ -1,6 +1,6 @@
 package chainOfResponsobilities;
 
-public class Prikaz {
+public class Order {
     private int level;
     private String descriprion;
 
@@ -20,7 +20,7 @@ public class Prikaz {
         this.descriprion = descriprion;
     }
 
-    public void doPrikaz(){
+    public void doPrikaz() {
         System.out.println("Done");
     }
 }

@@ -1,5 +1,5 @@
 package chainOfResponsobilities;
 
 public interface Army {
-    void doPrikaz(Prikaz prikaz);
+    void doOrder(Order order);
 }

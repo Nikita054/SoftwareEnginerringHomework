@@ -7,7 +7,7 @@ public class Cat implements Meowable {
         this.name = name;
     }
 
-    public void meow(){
-        System.out.println("Meeow "+name);
+    public void meow() {
+        System.out.println("Meeow " + name);
     }
 }

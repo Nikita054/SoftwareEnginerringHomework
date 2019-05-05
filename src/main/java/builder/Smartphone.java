@@ -5,40 +5,90 @@ public class Smartphone {
     private String os;
     private int cores;
     private double diag;
-    private String producer;
-    private Smartphone(){}
+    private Producer producer;
 
-    public class Builder {
-        private Smartphone smartphone=new Smartphone();
-        public Builder setName(String name){
-            smartphone.name=name;
+    private Smartphone() {
+    }
+
+    public class SamsungBuilder {
+        private Smartphone smartphone = new Smartphone();
+
+        public SamsungBuilder setName(String name) {
+            smartphone.name = name;
             return this;
         }
-        public Builder setProducer(String producer){
-            smartphone.producer=producer;
+
+        private SamsungBuilder setProducer(Producer producer) {
+            smartphone.producer = producer;
             return this;
         }
-        public Builder setOs(String os){
-            smartphone.os=os;
+
+        public SamsungBuilder setOs(String os) {
+            smartphone.os = os;
             return this;
         }
-        public Builder setCore(int cores){
-            smartphone.cores=cores;
+
+        public SamsungBuilder setCore(int cores) {
+            smartphone.cores = cores;
             return this;
         }
-        public Builder setDiag(double diag){
-            smartphone.diag=diag;
+
+        public SamsungBuilder setDiag(double diag) {
+            smartphone.diag = diag;
             return this;
         }
-        public Smartphone getSmartphone(){
+
+        public Smartphone getSmartphone() {
             return smartphone;
 
         }
+    }
 
+    public static SamsungBuilder getSamsungBuilder() {
+        return new Smartphone().new SamsungBuilder()
+                .setProducer(Producer.SAMSUNG);
     }
-    public static Builder getBuilder(){
-        return new Smartphone().new Builder();
+
+    public class AppleBuilder {
+        private Smartphone smartphone = new Smartphone();
+
+        public AppleBuilder setName(String name) {
+            smartphone.name = name;
+            return this;
+        }
+
+        private AppleBuilder setProducer(Producer producer) {
+            smartphone.producer = producer;
+            return this;
+        }
+
+        private AppleBuilder setOs(String os) {
+            smartphone.os = os;
+            return this;
+        }
+
+        public AppleBuilder setCore(int cores) {
+            smartphone.cores = cores;
+            return this;
+        }
+
+        public AppleBuilder setDiag(double diag) {
+            smartphone.diag = diag;
+            return this;
+        }
+
+        public Smartphone getSmartphone() {
+            return smartphone;
+
+        }
     }
+
+    public static AppleBuilder getAppleBuilder() {
+        return new Smartphone().new AppleBuilder()
+                .setProducer(Producer.APPLE)
+                .setOs("IoS");
+    }
+
     @Override
     public String toString() {
         return "Smartphone{" +

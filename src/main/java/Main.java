@@ -3,8 +3,8 @@ import adapter.Cat;
 import adapter.CatAdapter;
 import adapter.Voicable;
 import builder.Smartphone;
-import chainOfResponsobilities.Polkovnik;
-import chainOfResponsobilities.Prikaz;
+import chainOfResponsobilities.Colonel;
+import chainOfResponsobilities.Order;
 import json.JSONReader;
 import json.JSONWriter;
 import json.Student;
@@ -39,19 +39,26 @@ public class Main {
     }
 
     private static void showBuilder() {
-        Smartphone smartphone = Smartphone.getBuilder()
-                .setCore(6)
-                .setDiag(10)
+        Smartphone iphone = Smartphone.getAppleBuilder()
+                .setName("Iphone 5s")
+                .setCore(2)
+                .setDiag(5)
+                .getSmartphone();
+        Smartphone samsung = Smartphone.getSamsungBuilder()
+                .setName("Samsung galaxy s7")
+                .setCore(4)
+                .setDiag(6)
                 .setOs("Android")
                 .getSmartphone();
-        System.out.println(smartphone);
+        System.out.println(iphone);
+        System.out.println(samsung);
     }
 
     private static void showChainOfResponsobilities() {
-        Prikaz prikaz = new Prikaz();
-        prikaz.setDescriprion("Wash floor!!!");
-        prikaz.setLevel(7);
-        Polkovnik polkovnik=new Polkovnik();
-        polkovnik.doPrikaz(prikaz);
+        Order order = new Order();
+        order.setDescriprion("Wash floor!!!");
+        order.setLevel(7);
+        Colonel colonel = new Colonel();
+        colonel.doOrder(order);
     }
 }
