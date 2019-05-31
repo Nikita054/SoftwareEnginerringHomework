@@ -5,22 +5,21 @@ import adapter.Voicable;
 import builder.Smartphone;
 import chainOfResponsobilities.Colonel;
 import chainOfResponsobilities.Order;
-import json.JSONReader;
-import json.JSONWriter;
-import json.Student;
+import jsonandxml.StaXParser;
+import jsonandxml.JSONWriter;
+import jsonandxml.Student;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Student student = new Student();
-        student.setName("Nikita");
-        student.setAge(20);
         JSONWriter jsonWriter = new JSONWriter();
-        jsonWriter.writeJson(student);
-        student = new JSONReader().readJSON();
-        System.out.println(student);
+        List<Student> students = new StaXParser().readXML();
+        for(Student student : students){
+            jsonWriter.writeJson(student);
+        }
+        System.out.println(students);
         showAdapter();
         showBuilder();
         showChainOfResponsobilities();

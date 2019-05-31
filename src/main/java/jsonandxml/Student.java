@@ -1,4 +1,4 @@
-package json;
+package jsonandxml;
 
 public class Student {
     private String name;
